@@ -9,7 +9,7 @@ pipeline{
         stage('Terraform Init'){
             steps{
                 dir('infra'){
-                    sh 'terraform init'
+                   sh' echo -e "yes\n" | terraform init'
                 }
             }
         }
