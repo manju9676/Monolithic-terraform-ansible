@@ -9,7 +9,7 @@ pipeline{
         stage('Terraform Init'){
             steps{
                 dir('infra'){
-                   sh 'terraform init -migrate-state'
+                   sh 'echo -e "yes\n" | terraform init -migrate-state'
                 }
             }
         }
