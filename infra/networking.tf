@@ -1,4 +1,5 @@
 resource "aws_vpc" "myvpc" {
+    depends_on = [ aws_s3_bucket.s3 ]
   tags = {
     Name = "myvpc"
   }
