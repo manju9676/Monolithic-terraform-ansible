@@ -39,3 +39,4 @@ terraform.rc
 =======
 /infra/.terraform
 >>>>>>> a136c57 (updated)
+infra/.terraform.lock.hcl
