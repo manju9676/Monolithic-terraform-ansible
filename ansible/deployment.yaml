@@ -1,0 +1,28 @@
+---
+hosts: aws_ec2
+become: true
+connection: ssh
+user: ec2-user
+vars:
+  ansible_ssh_private_key_file: /etc/ansible/key.pem
+tasks:
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: present
+
+  - name: Start Apache
+    service:
+      name: httpd
+      state: started
+      enabled: true
+  - name: install git
+    yum:
+      name: git
+      state: present
+  - name: Clone the repository
+    git:
+      repo: "https://github.com/devops0014/staticsite-docker.git"
+      dest: /var/www/
+      update: yes
+      version: master
