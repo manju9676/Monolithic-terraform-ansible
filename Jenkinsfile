@@ -23,7 +23,7 @@ pipeline{
         stage('Terraform Apply'){
             steps{
                 dir('infra'){
-                    sh 'terraform apply tfplan'
+                    sh 'terraform destroy -auto-approve'
                 }
             }
         }
