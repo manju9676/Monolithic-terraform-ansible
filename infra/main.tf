@@ -18,6 +18,11 @@ resource "aws_autoscaling_group" "asg" {
     id      = aws_launch_template.lt.id
     version = "$Latest"
   }
+  tag {
+    key                 = "Name"
+    value               = "terraform-ansible"
+    propagate_at_launch = true
+  }
   health_check_type = "EC2"
   vpc_zone_identifier = [aws_subnet.public-subnet.id, aws_subnet.public-subnet-1.id]
 }
